@@ -1,0 +1,312 @@
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafd;
+  --bg-hover: #f1f3f4;
+  --bg-active: #e8f0fe;
+
+  --text-primary: #1f1f1f;
+  --text-secondary: #5f6368;
+  --text-muted: #80868b;
+
+  --accent-blue: #1a73e8;
+  --accent-blue-hover: #1557b0;
+  --accent-blue-light: #d2e3fc;
+
+  --danger: #d93025;
+  --danger-bg: #fce8e6;
+
+  --border-color: #dadce0;
+  --grid-line: #e0e0e0;
+
+  --event-bg: #039be5;
+  --event-border: #0277bd;
+  --event-conflict-bg: #e67c73;
+  --event-conflict-border: #c53929;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 24px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  --shadow-lg: 0 8px 16px 2px rgba(60, 64, 67, 0.2);
+
+  --header-height: 64px;
+  --sidebar-width: 264px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==================== ШАПКА (HEADER) ==================== */
+.app-header {
+  height: var(--header-height);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: var(--bg-primary);
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 12px;
+  color: var(--accent-blue);
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.period-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-left: 8px;
+  min-width: 180px;
+}
+
+.nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Поиск */
+.header-center {
+  flex: 1;
+  max-width: 480px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 0 14px;
+  height: 42px;
+  transition: all 0.15s ease;
+}
+
+.search-box:focus-within {
+  background: var(--bg-primary);
+  border-color: var(--accent-blue);
+  box-shadow: 0 1px 4px rgba(26, 115, 232, 0.2);
+}
+
+.search-icon {
+  color: var(--text-secondary);
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* Бейдж режима (WebView vs Mock) */
+.mode-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.mode-badge.webview {
+  background: #e6f4ea;
+  color: #137333;
+  border-color: #ceead6;
+}
+
+/* Переключатель вида */
+.view-switcher {
+  display: inline-flex;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.btn-view {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-view:hover {
+  background: var(--bg-hover);
+}
+
+.btn-view.active {
+  background: var(--bg-active);
+  color: var(--accent-blue);
+}
+
+/* ==================== КНОПКИ ==================== */
+.btn {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-outlined {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-outlined:hover {
+  background: var(--bg-hover);
+}
+
+.btn-primary {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-blue-hover);
+}
+
+.btn-danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.btn-danger:hover {
+  background: #f9d2ce;
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn-icon:hover {
+  background: var(--bg-hover);
+}
+
+.btn-icon-sm {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.btn-icon-sm:hover {
+  background: var(--bg-hover);
+}
+
+/* ==================== ОСНОВНОЙ КОНТЕЙНЕР И САЙДБАР ==================== */
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.app-sidebar {
+  width: var(--sidebar-width);
+  border-right: 1px solid var(--border-color);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.btn-create {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  width: fit-content;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+.btn-create svg {
+  color: var(--accent-blue);
+}
+
+.btn-create:hover {
+  background: #fafbfc;
+  box-shadow: 0 2px 6px rgba(60, 64, 67, 0.3);
+}
+
+/* Мини-календарь */
+.mini-calendar {
+  background: var(--bg-primary);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);

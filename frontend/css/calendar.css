@@ -1,0 +1,82 @@
+.calendar-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.calendar-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ==================== СЕТКА ДНЯ И НЕДЕЛИ (TIME GRID) ==================== */
+.time-grid-header {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  padding-left: 64px; /* Отступ под колонку часов */
+  padding-right: 14px; /* Компенсация скроллбара */
+  flex-shrink: 0;
+}
+
+.time-grid-day-header {
+  flex: 1;
+  text-align: center;
+  padding: 10px 4px;
+  border-left: 1px solid var(--grid-line);
+}
+
+.day-header-name {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.day-header-number {
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.day-header-number:hover {
+  background: var(--bg-hover);
+}
+
+.time-grid-day-header.today .day-header-name {
+  color: var(--accent-blue);
+}
+
+.time-grid-day-header.today .day-header-number {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+/* Прокручиваемая область 24 часов */
+.time-grid-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  position: relative;
+}
+
+.time-labels-col {
+  width: 64px;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.time-label-slot {
+  height: 60px; /* 1 час = 60px (1 мин = 1px) */
+  position: relative;
+  padding-right: 8

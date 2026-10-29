@@ -1,2 +1,0 @@
-// VALF
-// Bez mata pj
